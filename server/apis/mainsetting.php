@@ -5,7 +5,7 @@ $conn=getConnection();
 if($conn==null){
     sendResponse(500,$conn,'Server Connection Error');
 }else{
-    $sql = "SELECT `monthlyversetitle`, `monthlyversesecondtitle`, `monthlyverse`, `liveyoutubechannel`, `choirtitle`, `choirvideo`, `singingtitle`, `singingvideo`, `phone`, `email`, `address`, `modalcontent`, `modalcontentheader`, `jubo1`, `jubo2` FROM `mainsetting`";
+    $sql = "SELECT `monthlyversetitle`, `monthlyversesecondtitle`, `monthlyverse`, `liveyoutubechannel`, `choirtitle`, `choirvideo`, `singingtitle`, `singingvideo`, `phone`, `email`, `address`, `modalcontent`, `modalcontentheader`, `modal` FROM `mainsetting`";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $settings=array();
@@ -24,8 +24,7 @@ if($conn==null){
                 "address" => $row["address"],
                 "modalcontent" => $row["modalcontent"],
                 "modalcontentheader" => $row["modalcontentheader"],
-                "jubo1" => $row["jubo1"],
-                "jubo2" => $row["jubo2"]
+                "modal" => $row["modal"]
             );
             array_push($settings,$setting);
         }
